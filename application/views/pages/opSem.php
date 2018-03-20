@@ -1,1 +1,8 @@
-<h2>Operational Semantics</h2>
+<center><h2>Operational Semantics</h2></center>
+<form>
+	<div class="form-group">
+		<label>Enter expression below</label>
+		<input type="text" name="input1" class="form-control"/> 
+		<button class="btn-primary" type="submit">Submit</button>
+	</div>
+</form>
