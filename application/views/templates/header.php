@@ -7,7 +7,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="/home">CodeIgniter APL</a>
+  <a class="navbar-brand" href="<?php echo base_url();?>home">CodeIgniter APL</a>
   
   <!-- Links -->
   <ul class="navbar-nav">
