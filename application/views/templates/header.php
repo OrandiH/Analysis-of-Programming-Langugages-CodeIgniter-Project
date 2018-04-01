@@ -18,7 +18,10 @@
       <a class="nav-link" href="<?php echo base_url();?>about">About</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url();?>opSem">Operational Semantics</a>
+    <a class="nav-link" href="<?php echo base_url();?>opSem">Big Step Operational Semantics</a>
+    </li>
+      <li class="nav-item">
+    <a class="nav-link" href="<?php echo base_url();?>smallOpSem">Small Step Operational Semantics</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="<?php echo base_url();?>denoSem">Denotational Semantics</a>
