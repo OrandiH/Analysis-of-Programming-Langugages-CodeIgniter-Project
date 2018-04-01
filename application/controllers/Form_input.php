@@ -23,69 +23,91 @@
 			$data = (explode(" ", $form_data["input1"]));
 
 			$index = 0;
+			$leftHandExp = "";
+			$tempResult = 0;
+			$result = 0;
 				echo "<p class='display-4'>< x,σ > -> ".$data[$index]." &nbsp;&nbsp;&nbsp;&nbsp; < y,σ > ->". $data[$index + 2]."</p><br/>";
 
 					if($data[$index + 1] == '+'){
 						$tempResult = $data[$index] + $data[$index + 2];
 						$string1 = "x + y";
+						$leftHandSide = " ".$data[$index]." + ".$data[$index+2];
 						echo "<p class='display-4'> < x + y,σ > -> " .$data[$index]." + ".$data[$index + 2]."</p>";
-						echo "< " .$data[$index]." + ".$data[$index + 2]."  > ⇓ ". $tempResult;
+						echo "<p class='display-4'> < " .$data[$index]." + ".$data[$index + 2]."  > ⇓ ". $tempResult."</p><br/>";
+						echo "<p class='display-4'> < ". $string1. " ,σ> -> ".$tempResult."</p>";
+						$leftHandExp = $string1;
 						
 					}
 					if($data[$index + 1] == '*'){
 						$tempResult = $data[$index] * $data[$index + 2];
 						$string1 = "x * y";
+						$leftHandSide = " ".$data[$index]." * ".$data[$index+2];
 						echo "<p class='display-4'> < x * y,σ > -> " .$data[$index]." * ".$data[$index + 2]."</p>";
-						echo "< " .$data[$index]." * ".$data[$index + 2]."  > ⇓ ". $tempResult;
+						echo "<p class='display-4'> < " .$data[$index]." * ".$data[$index + 2]."  > ⇓ ". $tempResult."</p><br/>";
+						echo "<p class='display-4'> < ". $string1. " ,σ> -> ".$tempResult."</p>";
+						$leftHandExp = $string1;
 						
 					}
 					if($data[$index + 1] == '-'){
 						$tempResult = $data[$index] - $data[$index + 2];
 						$string1 = "x - y";
+						$leftHandSide = " ".$data[$index]." - ".$data[$index+2];
 						echo "<p class='display-4'> < x - y,σ > -> " .$data[$index]." - ".$data[$index + 2]."</p>";
-						echo "< " .$data[$index]." - ".$data[$index + 2]."  > ⇓ ". $tempResult;
+						echo "<p class='display-4'> < " .$data[$index]." - ".$data[$index + 2]."  > ⇓ ". $tempResult."</p><br/>";
+						echo "<p class='display-4'> < ". $string1. " ,σ> -> ".$tempResult."</p>";
+						$leftHandExp = $string1;
 						
 					}
 						if($data[$index + 1] == '/'){
 							$tempResult = $data[$index] / $data[$index + 2];
 							$string1 = "x / y";
-							echo "<p class='display-4'> < x / y,σ > -> " .$data[$index]." / ".$data[$index + 2]."</p>";
-						echo "< " .$data[$index]." / ".$data[$index + 2]."  > ⇓ ". $tempResult;
+							$leftHandSide = " ".$data[$index]." / ".$data[$index+2];
+							echo "<p class='display-4'> < x + y,σ > -> " .$data[$index]." / ".$data[$index + 2]."</p>";
+							echo "<p class='display-4'> < " .$data[$index]." / ".$data[$index + 2]."  > ⇓ ". $tempResult."</p><br/>";
+							echo "<p class='display-4'> < ". $string1. " ,σ> -> ".$tempResult."</p>";
+							$leftHandExp = $string1;
 							
 						}
 						if($data[$index + 3] == '-'){
 							echo "<p class='display-4'> < z,σ > -> ". $data[$index + 4]."</p>";
 							$string2 = "- z";
 							$result = $tempResult - $data[$index + 4];
-							
-							
+							echo " <p class='display-4'> < ( ".$leftHandExp. ") ".$string2. " ,σ> -> ".$tempResult." - ".$data[$index + 4]."</p><br/>";
+							echo "<p class='display-4'> < (" .$leftHandSide. ") - ".$data[$index + 4]. " ,σ> -> ".$result."</p>";
+
 						}
 
 					if($data[$index + 3] == '+'){
-						$string2 = "+ z";
-						echo "<br/> <p class='display-4' > < z,σ > -> ". $data[$index + 4]."</p>";
-						$result = $tempResult + $data[$index + 4];
+						echo "<p class='display-4'> < z,σ > -> ". $data[$index + 4]."</p>";
+							$string2 = "+ z";
+							$result = $tempResult + $data[$index + 4];
+							echo " <p class='display-4'> < ( ".$leftHandExp. ") ".$string2. " ,σ> -> ".$tempResult." + ".$data[$index + 4]."</p><br/>";
+							echo "<p class='display-4'> < (" .$leftHandSide. ") + ".$data[$index + 4]. " ,σ> -> ".$result."</p>";
 						
 					}
 
 					if($data[$index + 3] == '*'){
-						$string2 = "* z";
-						echo "<p class ='display-4' >< z,σ > ⇓ ". $data[$index + 4]."</p>";
-						$result = $tempResult * $data[$index + 4];
+						echo "<p class='display-4'> < z,σ > -> ". $data[$index + 4]."</p>";
+							$string2 = "* z";
+							$result = $tempResult * $data[$index + 4];
+							echo " <p class='display-4'> < ( ".$leftHandExp. ") ".$string2. " ,σ> -> ".$tempResult." * ".$data[$index + 4]."</p><br/>";
+							echo "<p class='display-4'> < (" .$leftHandSide. ") * ".$data[$index + 4]. " ,σ> -> ".$result."</p>";
 						
 					}
 					if($data[$index + 3] == '/'){
-						$string2 = "/ z";
-						echo "<p class='display-4'> < z,σ > ⇓ ". $data[$index + 4]."</p>";
-						$result = $tempResult / $data[$index + 4];
-						$index = 5;
+						echo "<p class='display-4'> < z,σ > -> ". $data[$index + 4]."</p>";
+							$string2 = "/ z";
+							$result = $tempResult / $data[$index + 4];
+							echo " <p class='display-4'> < ( ".$leftHandExp. ") ".$string2. " ,σ> -> ".$tempResult." / ".$data[$index + 4]."</p><br/>";
+							echo "<p class='display-4'> < (" .$leftHandSide. ") / ".$data[$index + 4]. " ,σ> -> ".$result."</p>";
+		
+
 					}else if(empty($data[$index + 3])){
 						echo "No third argument given.<br/>";
 					}
 					else {
-						# code...
 						echo "<br/>";
-						echo " <p class = 'display-4'> < ".$string1." ".$string2.",σ>"." ⇓ ".$result."</p>";
+						echo " <p class = 'display-4'> < (".$string1.") ".$string2.",σ>"." ⇓ ".$result."</p>";
 					}
 
 					
