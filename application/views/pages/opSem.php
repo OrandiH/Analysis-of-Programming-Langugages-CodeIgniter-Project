@@ -1,4 +1,4 @@
-<center><h2>Big Step Operational Semantics</h2></center>
+<center><h2>Operational Semantics</h2></center>
 <form action="form_reader/processInput" method="POST">
 	<div class="form-group">
 		<label>Enter expression below</label>
